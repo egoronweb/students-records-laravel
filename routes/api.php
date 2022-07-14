@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [Controller::class, 'create']);
 Route::post('/create', [StudentController::class, 'create']);
-Route::get('/homepage', [StudentController::class, 'index']);
+Route::get('/dashboard', [StudentController::class, 'index']);
+Route::post('/login', [Controller::class, 'userLogin']);
+Route::get('/dashboard/edit/{id}', [StudentController::class, 'edit']);
+Route::put('/dashboard/edit/update/{id}', [StudentController::class, 'update']);
+Route::delete('/dashboard/delete/{id}', [StudentController::class, 'destroy']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

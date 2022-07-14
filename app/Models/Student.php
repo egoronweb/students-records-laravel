@@ -11,6 +11,8 @@ class Student extends Model
     
     protected $fillable = [
         'fullname',
+        'semester',
+        'year',
         'final_grade',
     ];
 }
