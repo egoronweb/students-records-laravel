@@ -25,14 +25,23 @@ class Controller extends BaseController
 
     public function create(Request $request){
         $user = new User;
-        $user->username = $request->input('username');
-        $user->password = Hash::make($request->input('password'));
-        $user->save();
 
-        return response()->json([
-            'status' => 200,
-            'message' => 'Successfully Added',
-        ]);
+        if($request->input('password') === $request->input('re_password')){
+            $user->username = $request->input('username');
+
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Successfully Added',
+            ]);
+        }else{
+            return response()->json([
+                'status' => 401,
+                'message' => 'Please check your password!'
+            ]);
+        }
     }
 
 
