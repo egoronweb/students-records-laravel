@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('fullname');
             $table->string('semester');
             $table->string('year');
+            $table->string('grade_level');
             $table->string('final_grade');
             $table->timestamps();
         });

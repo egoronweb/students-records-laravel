@@ -24,6 +24,7 @@ class StudentController extends Controller
         $student->fullname = $request->input('fullname');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
+        $student->grade_level = $request->input('grade_level');
         $student->final_grade = $request->input('final_grade');
         $student->save();
 
@@ -47,6 +48,7 @@ class StudentController extends Controller
         $student->fullname = $request->input('fullname');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
+        $student->grade_level = $request->input('grade_level');
         $student->final_grade = $request->input('final_grade');
         $student->save();
 
