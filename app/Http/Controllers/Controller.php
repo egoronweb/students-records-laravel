@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -12,7 +13,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests, HasApiTokens;
 
     public function index(){
         $users = User::all();
@@ -27,6 +28,7 @@ class Controller extends BaseController
         $user = new User;
 
         if($request->input('password') === $request->input('re_password')){
+            $user->fullname = $request->input('fullname');
             $user->username = $request->input('username');
 
             $user->password = Hash::make($request->input('password'));
@@ -55,10 +57,9 @@ class Controller extends BaseController
                 'response' => 'Invalid Credentials',
             ]);
         }else{
-            $token = $user->createToken('Auth Token')->accessToken;
             return response()->json([
                 'status' => 200,
-                'token' =>$token,
+                'user' => $user,
             ]);
         }
     }
