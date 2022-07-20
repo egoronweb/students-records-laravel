@@ -13,7 +13,7 @@ class Student extends Model
         'fullname',
         'semester',
         'year',
-        'grade_level',
+        'year_level',
         'final_grade',
     ];
 }
