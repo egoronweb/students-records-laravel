@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
 
-
 class StudentController extends Controller
 {
     public function index(){
@@ -21,7 +20,8 @@ class StudentController extends Controller
 
     public function create(Request $request){
         $student = new Student;
-        $student->fullname = $request->input('fullname');
+        $student->fullname = $request->input('fullnamename');
+        $student->subject = $request->input('subject');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
         $student->year_level = $request->input('year_level');
@@ -45,10 +45,11 @@ class StudentController extends Controller
 
     public function update(Request $request, $id){
         $student = Student::find($id);
-        $student->fullname = $request->input('fullname');
-        $student->semester = $request->input('semester');
-        $student->year = $request->input('year');
-        $student->year_level = $request->input('year_level');
+        $student->fullname = $request->input('fulname');
+        $student->subject = $request->input('subject');
+        $student->semester = $request->select('semester');
+        $student->year = $request->select('year');
+        $student->year_level = $request->select('year_level');
         $student->final_grade = $request->input('final_grade');
         $student->save();
 
