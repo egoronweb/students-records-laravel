@@ -47,9 +47,9 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->fullname = $request->input('fullname');
         $student->subject = $request->input('subject');
-        $student->semester = $request->select('semester');
-        $student->year = $request->select('year');
-        $student->year_level = $request->select('year_level');
+        $student->semester = $request->input('semester');
+        $student->year = $request->input('year');
+        $student->year_level = $request->input('year_level');
         $student->final_grade = $request->input('final_grade');
         $student->save();
 
