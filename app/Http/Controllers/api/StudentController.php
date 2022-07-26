@@ -20,7 +20,7 @@ class StudentController extends Controller
 
     public function create(Request $request){
         $student = new Student;
-        $student->fullname = $request->input('fullnamename');
+        $student->fullname = $request->input('fullname');
         $student->subject = $request->input('subject');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
