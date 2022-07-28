@@ -17,5 +17,6 @@ class Student extends Model
         'semester',
         'year',
         'grade',
+        're_exam',
     ];
 }
