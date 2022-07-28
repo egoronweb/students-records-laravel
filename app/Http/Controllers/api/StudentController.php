@@ -20,7 +20,9 @@ class StudentController extends Controller
 
     public function create(Request $request){
         $student = new Student;
-        $student->fullname = $request->input('fullname');
+        $student->first_name = $request->input('first_name');
+        $student->middle_name = $request->input('middle_name');
+        $student->last_name = $request->input('last_name');
         $student->subject = $request->input('subject');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
@@ -45,7 +47,9 @@ class StudentController extends Controller
 
     public function update(Request $request, $id){
         $student = Student::find($id);
-        $student->fullname = $request->input('fullname');
+        $student->first_name = $request->input('first_name');
+        $student->middle_name = $request->input('middle_name');
+        $student->last_name = $request->input('last_name');
         $student->subject = $request->input('subject');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
