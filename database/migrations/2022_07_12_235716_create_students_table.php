@@ -22,7 +22,7 @@ class CreateStudentsTable extends Migration
             $table->string('semester');
             $table->string('year');
             $table->string('grade');
-            $table->string('re_exam');
+            $table->string('re_exam')->nullable();
             $table->timestamps();
         });
     }
