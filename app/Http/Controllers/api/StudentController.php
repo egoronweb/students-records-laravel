@@ -21,13 +21,13 @@ class StudentController extends Controller
     public function create(Request $request){
         $student = new Student;
         $student->first_name = $request->input('first_name');
-        $student->middle_name = $request->input('middle_name');
         $student->last_name = $request->input('last_name');
-        $student->subject = $request->input('subject');
+        $student->subject_code = $request->input('subject_code');
+        $student->descriptive_title = $request->input('descriptive_title');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
-        $student->year_level = $request->input('year_level');
-        $student->final_grade = $request->input('final_grade');
+        $student->grade = $request->input('grade');
+        $student->re_exam = $request->input('re_exam');
         $student->save();
 
         return response()->json([
@@ -48,13 +48,13 @@ class StudentController extends Controller
     public function update(Request $request, $id){
         $student = Student::find($id);
         $student->first_name = $request->input('first_name');
-        $student->middle_name = $request->input('middle_name');
         $student->last_name = $request->input('last_name');
-        $student->subject = $request->input('subject');
+        $student->subject_code = $request->input('subject_code');
+        $student->descriptive_title = $request->input('descriptive_title');
         $student->semester = $request->input('semester');
         $student->year = $request->input('year');
-        $student->year_level = $request->input('year_level');
-        $student->final_grade = $request->input('final_grade');
+        $student->grade = $request->input('grade');
+        $student->re_exam = $request->input('re_exam');
         $student->save();
 
         return response()->json([

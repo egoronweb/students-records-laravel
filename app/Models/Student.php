@@ -11,12 +11,12 @@ class Student extends Model
     
     protected $fillable = [
         'first_name',
-        'middle_name',
         'last_name',
-        'subject',
+        'subject_code',
+        'descriptive_title',
         'semester',
         'year',
-        'year_level',
-        'final_grade',
+        'grade',
+        're_exam',
     ];
 }
